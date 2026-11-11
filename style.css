@@ -267,15 +267,133 @@
 
 }
 
-/* Accessibility */
-@media (prefers-reduced-motion: reduce) {
+/* ===== TABLET ===== */
+@media screen and (min-width: 481px) and (max-width: 768px) {
 
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
+    .container {
+        max-width: 430px;
+        padding: 30px 20px;
     }
+
+    .photo-frame {
+        width: 200px;
+        height: 200px;
+    }
+
+    .reza-name {
+        font-size: 36px;
+    }
+
+    .main-title {
+        font-size: 36px;
+    }
+
+}
+
+/* ===== MOBILE ===== */
+@media screen and (max-width: 480px) {
+
+    body {
+        padding: 20px 12px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 380px;
+        padding: 28px 16px;
+    }
+
+    .top-label {
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+
+    .main-title {
+        font-size: 29px;
+    }
+
+    .photo-frame {
+        width: 175px;
+        height: 175px;
+    }
+
+    .reza-name {
+        font-size: 32px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .toxic-text span {
+        font-size: clamp(25px, 8vw, 36px);
+    }
+
+    .funny-box {
+        padding: 15px 12px;
+    }
+
+    .funny-box p {
+        font-size: 12px;
+    }
+
+    .stat span {
+        font-size: 19px;
+    }
+
+    footer {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .warning {
+        font-size: 17px;
+    }
+
+    .intro-screen h1 {
+        font-size: 30px;
+    }
+
+    .countdown {
+        font-size: 75px;
+    }
+
+    #startBtn {
+        padding: 13px 28px;
+        font-size: 16px;
+    }
+
+    .toast {
+        width: calc(100% - 30px);
+        font-size: 13px;
+    }
+
+}
+
+/* ===== SMALL MOBILE ===== */
+@media screen and (max-width: 350px) {
+
+    .container {
+        padding: 23px 12px;
+    }
+
+    .photo-frame {
+        width: 150px;
+        height: 150px;
+    }
+
+    .reza-name {
+        font-size: 28px;
+    }
+
+    .main-title {
+        font-size: 25px;
+    }
+
+    .countdown {
+        font-size: 60px;
+    }
+
+  }
 
 }
