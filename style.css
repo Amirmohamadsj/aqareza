@@ -491,5 +491,247 @@ body.shake {
         opacity: 0;
         transform: translate(-50%, -100px);
     }
+
+    
+/* =====================================
+   RESPONSIVE DESIGN
+   فقط تنظیمات نمایش در موبایل و تبلت
+===================================== */
+
+/* تبلت و صفحه‌های کوچک */
+@media (max-width: 768px) {
+
+    body {
+        padding: 24px 16px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 480px;
+        padding: 30px 18px;
+        border-radius: 26px;
+    }
+
+    .main-title {
+        font-size: clamp(30px, 7vw, 40px);
+    }
+
+    .photo-frame {
+        width: clamp(170px, 35vw, 220px);
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .reza-name {
+        font-size: clamp(32px, 6vw, 42px);
+    }
+
+    .stats {
+        gap: 12px;
+    }
+
+    .stat span {
+        font-size: clamp(19px, 4vw, 23px);
+    }
+
+    footer {
+        letter-spacing: 2px;
+    }
+}
+
+/* موبایل */
+@media (max-width: 480px) {
+
+    body {
+        padding: 20px 12px;
+        min-height: 100vh;
+        min-height: 100svh;
+        align-items: flex-start;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 26px 15px;
+        border-radius: 24px;
+    }
+
+    .top-label {
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+
+    .main-title {
+        font-size: clamp(27px, 8vw, 36px);
+        margin: 14px 0 22px;
+    }
+
+    .photo-frame {
+        width: min(55vw, 200px);
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .reza-name {
+        font-size: clamp(30px, 9vw, 38px);
+        margin-top: 24px;
+    }
+
+    .toxic-text {
+        margin-top: 20px;
+    }
+
+    .toxic-text span {
+        font-size: clamp(27px, 9vw, 40px);
+    }
+
+    .funny-box {
+        padding: 15px 12px;
+    }
+
+    .funny-box p {
+        font-size: 13px;
+        line-height: 2;
+    }
+
+    .emoji {
+        font-size: 30px;
+    }
+
+    .stats {
+        justify-content: space-between;
+        gap: 8px;
+        margin-top: 24px;
+    }
+
+    .stat {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .stat span {
+        font-size: clamp(18px, 6vw, 22px);
+    }
+
+    .stat small {
+        font-size: 11px;
+    }
+
+    footer {
+        margin-top: 28px;
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    /* صفحه شروع */
+
+    .intro-screen {
+        padding: 20px 15px;
+        gap: 18px;
+    }
+
+    .warning {
+        font-size: 17px;
+    }
+
+    .intro-screen h1 {
+        font-size: clamp(30px, 9vw, 38px);
+    }
+
+    .intro-screen p {
+        font-size: 14px;
+    }
+
+    .countdown {
+        font-size: clamp(75px, 22vw, 95px);
+    }
+
+    #startBtn {
+        max-width: 100%;
+        padding: 13px 25px;
+        font-size: 16px;
+    }
+
+    /* پیام‌های شناور */
+
+    .toast {
+        width: calc(100% - 30px);
+        max-width: 400px;
+        padding: 12px 14px;
+        font-size: 13px;
+        overflow-wrap: anywhere;
+    }
+}
+
+/* گوشی‌های خیلی کوچک */
+@media (max-width: 350px) {
+
+    body {
+        padding: 15px 8px;
+    }
+
+    .container {
+        padding: 22px 12px;
+    }
+
+    .top-label {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .main-title {
+        font-size: 27px;
+    }
+
+    .photo-frame {
+        width: 165px;
+    }
+
+    .reza-name {
+        font-size: 29px;
+    }
+
+    .toxic-text span {
+        font-size: 27px;
+    }
+
+    .stats {
+        gap: 4px;
+    }
+
+    .stat span {
+        font-size: 17px;
+    }
+
+    .stat small {
+        font-size: 10px;
+    }
+
+    footer {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .intro-screen h1 {
+        font-size: 29px;
+    }
+
+    #startBtn {
+        font-size: 14px;
+        padding: 12px 20px;
+    }
+}
+
+/* جلوگیری از اسکرول افقی */
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
 }
 
