@@ -1,0 +1,207 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at 20% 20%, #25104b 0%, transparent 35%),
+        radial-gradient(circle at 80% 80%, #071e43 0%, transparent 35%),
+        #080711;
+
+    color: white;
+    font-family: 'Vazirmatn', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    padding: 30px 15px;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+    padding: 35px 20px;
+    border: 1px solid #773cff66;
+    border-radius: 30px;
+    background: #120d20c9;
+    backdrop-filter: blur(15px);
+    box-shadow:
+        0 0 30px #792cff25,
+        0 0 80px #176aff18;
+    animation: appear 1.2s ease;
+}
+
+.top-label {
+    color: #bd8aff;
+    font-size: 12px;
+    letter-spacing: 5px;
+    animation: pulse 2s infinite;
+}
+
+.main-title {
+    font-size: clamp(30px, 8vw, 43px);
+    font-weight: 900;
+    margin: 15px 0 25px;
+    background: linear-gradient(90deg, #9b5cff, #38d9ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 30px #8246ff70;
+}
+
+.photo-frame {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+    padding: 7px;
+    border-radius: 30px;
+    position: relative;
+    background: linear-gradient(
+        135deg,
+        #b34dff,
+        #00d9ff,
+        #b34dff
+    );
+    background-size: 300% 300%;
+    animation: neon 4s linear infinite,
+               float 3s ease-in-out infinite;
+    box-shadow:
+        0 0 20px #9d4dff,
+        0 0 55px #147dff66;
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 24px;
+    background: #1a1030;
+    display: block;
+}
+
+.reza-name {
+    margin-top: 28px;
+    font-size: 42px;
+    font-weight: 900;
+    color: #c49aff;
+    text-shadow:
+        0 0 10px #9e54ff,
+        0 0 30px #783cff;
+    animation: pulse 2.5s infinite;
+}
+
+.subtitle {
+    margin-top: 12px;
+    color: #4edcff;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.divider {
+    height: 2px;
+    width: 65%;
+    margin: 25px auto;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #a15bff,
+        #36d8ff,
+        transparent
+    );
+}
+
+.funny-box {
+    background: #211439;
+    border: 1px solid #8245ff70;
+    padding: 18px;
+    border-radius: 18px;
+    animation: float 4s ease-in-out infinite;
+}
+
+.emoji {
+    font-size: 35px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.funny-box p {
+    color: #e0d5ff;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 28px;
+    gap: 10px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.stat span {
+    font-size: 23px;
+    font-weight: 900;
+    color: #50dfff;
+    text-shadow: 0 0 15px #00aeff;
+}
+
+.stat small {
+    color: #bda7e9;
+}
+
+footer {
+    margin-top: 35px;
+    color: #8566b5;
+    font-size: 10px;
+    letter-spacing: 4px;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes neon {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-9px); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .7; }
+}
+
+@media (max-width: 400px) {
+    .photo-frame {
+        width: 185px;
+        height: 185px;
+    }
+
+    .reza-name {
+        font-size: 34px;
+    }
+}
