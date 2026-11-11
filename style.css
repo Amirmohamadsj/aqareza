@@ -491,8 +491,8 @@ body.shake {
         opacity: 0;
         transform: translate(-50%, -100px);
     }
+}
 
-    
 /* =====================================
    RESPONSIVE DESIGN
    فقط تنظیمات نمایش در موبایل و تبلت
@@ -732,6 +732,3 @@ body {
 img {
     max-width: 100%;
 }
-
-}
-
