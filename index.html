@@ -1,42 +1,92 @@
 
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>آقا رضا | The Legend</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <div class="stars"></div>
 
-    <main class="container">
+    <!-- صفحه شروع -->
+    <div class="intro-screen" id="intro">
 
-        <div class="top-label">⚡ SPECIAL EDITION ⚡</div>
+        <div class="warning">⚠️ WARNING ⚠️</div>
+
+        <h1>آماده‌ای؟</h1>
+
+        <p>یک موجود خطرناک شناسایی شد...</p>
+
+        <div class="countdown" id="countdown">3</div>
+
+        <button id="startBtn">شروع عملیات 😂</button>
+
+    </div>
+
+    
+<div class="mega-explosion" id="explosion">
+
+    <div class="shockwave wave1"></div>
+    <div class="shockwave wave2"></div>
+    <div class="shockwave wave3"></div>
+
+    <div class="explosion-core"></div>
+
+    <div class="explosion-text">
+        💀 REZA HAS ARRIVED 💀
+    </div>
+
+</div>
+
+    <!-- افکت فلش -->
+    <div class="glitch-flash" id="flash"></div>
+
+    <!-- محتوای اصلی -->
+    <main class="container" id="main">
+
+        <div class="top-label">
+            ⚡ SPECIAL EDITION ⚡
+        </div>
 
         <h1 class="main-title">THE LEGEND</h1>
 
         <div class="photo-frame">
-            <!-- عکس خودت را با نام reza.jpg کنار فایل HTML بگذار -->
-            <img src="./photo_31213640270_x.jpg" alt="عکس آقا رضا">
+
+            <img
+                src="./photo_31213640270_x.jpg"
+                alt="عکس آقا رضا"
+            >
+
             <div class="photo-glow"></div>
+
         </div>
 
         <h2 class="reza-name">عاقــا رضــا</h2>
 
-        <p class="subtitle">
-            درتو بزار 😂
-        </p>
+        <div class="toxic-text">
+            <span>درتو بزار 😂</span>
+        </div>
 
         <div class="divider"></div>
 
         <div class="funny-box">
+
             <span class="emoji">🤣</span>
-            <p>هشدار! نزدیک شدن به این موجود ممکن است باعث خنده شدید شود!</p>
+
+            <p>
+                هشدار! نزدیک شدن به این موجود
+                ممکن است باعث خنده شدید شود!
+            </p>
+
         </div>
 
         <div class="stats">
+
             <div class="stat">
                 <span>100%</span>
                 <small>دیوانگی</small>
@@ -48,9 +98,10 @@
             </div>
 
             <div class="stat">
-                <span>∞</span>
+                <span>∞-</span>
                 <small>رفاقت</small>
             </div>
+
         </div>
 
         <footer>
@@ -58,6 +109,92 @@
         </footer>
 
     </main>
+
+    <!-- پیام های شناور -->
+    <div class="toast" id="toast">
+        سیستم در حضور رضا هنگ کرد 🤣
+    </div>
+
+    <!-- جاوااسکریپت -->
+    <script>
+
+        const startBtn = document.getElementById("startBtn");
+        const countdown = document.getElementById("countdown");
+        const intro = document.getElementById("intro");
+        const flash = document.getElementById("flash");
+        const toast = document.getElementById("toast");
+
+        const messages = [
+            "⚠️ موجود ناشناخته وارد شد",
+            "🤣 عقل و منطق پیدا نشد",
+            "💀 رضا به سیستم نزدیک شد",
+            "🚨 سطح خطر از کنترل خارج شد",
+            "😂 لطفاً از رضا فاصله بگیرید"
+        ];
+
+        const sleep = ms =>
+            new Promise(resolve => setTimeout(resolve, ms));
+
+        startBtn.addEventListener("click", async () => {
+
+            startBtn.disabled = true;
+            startBtn.textContent = "عملیات آغاز شد 💀";
+
+            // شمارش معکوس
+            for (let i = 3; i >= 1; i--) {
+
+                countdown.textContent = i;
+
+                countdown.classList.remove("count-pop");
+
+                void countdown.offsetWidth;
+
+                countdown.classList.add("count-pop");
+
+                await sleep(1000);
+            }
+
+            countdown.textContent = "💀";
+
+            await sleep(500);
+
+            // خروج صفحه شروع
+            intro.classList.add("intro-out");
+
+            // ورود رضا
+            document.body.classList.add("started");
+
+            // افکت انفجار نوری
+            flash.classList.add("flash-active");
+
+            document.body.classList.add("shake");
+
+            await sleep(800);
+
+            flash.classList.remove("flash-active");
+
+            document.body.classList.remove("shake");
+
+            // نمایش پیام های خنده دار
+            messages.forEach((message, index) => {
+
+                setTimeout(() => {
+
+                    toast.textContent = message;
+
+                    toast.classList.remove("toast-show");
+
+                    void toast.offsetWidth;
+
+                    toast.classList.add("toast-show");
+
+                }, 2500 + index * 1900);
+
+            });
+
+        });
+
+    </script>
 
 </body>
 </html>

@@ -104,6 +104,57 @@ body {
     font-weight: 700;
 }
 
+.toxic-text {
+    margin-top: 25px;
+    overflow: hidden;
+}
+
+.toxic-text span {
+    display: inline-block;
+    font-size: clamp(30px, 9vw, 48px);
+    font-weight: 900;
+    color: #ff35d3;
+    text-shadow:
+        0 0 10px #ff35d3,
+        0 0 25px #8b35ff,
+        0 0 50px #8b35ff;
+
+    animation: toxicEntry 1.4s
+        cubic-bezier(.17,.89,.32,1.49) both,
+        toxicGlow 1.5s 1.4s infinite alternate;
+}
+
+@keyframes toxicEntry {
+    0% {
+        opacity: 0;
+        transform: translateX(180px) rotate(25deg) scale(0);
+        filter: blur(15px);
+    }
+
+    65% {
+        opacity: 1;
+        transform: translateX(-15px) rotate(-8deg) scale(1.3);
+        filter: blur(0);
+    }
+
+    100% {
+        transform: translateX(0) rotate(0) scale(1);
+    }
+}
+
+@keyframes toxicGlow {
+    from {
+        text-shadow: 0 0 10px #ff35d3;
+        transform: scale(1);
+    }
+
+    to {
+        text-shadow: 0 0 30px #ff35d3,
+                     0 0 60px #8035ff;
+        transform: scale(1.06);
+    }
+}
+
 .divider {
     height: 2px;
     width: 65%;
@@ -205,3 +256,240 @@ footer {
         font-size: 34px;
     }
 }
+
+
+
+/* ===== INTRO SCREEN ===== */
+
+.intro-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: radial-gradient(circle, #241044, #05030b 75%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+    padding: 20px;
+}
+
+.warning {
+    color: #ff315d;
+    font-size: 20px;
+    font-weight: 900;
+    animation: pulse .5s infinite alternate;
+}
+
+.intro-screen h1 {
+    color: #c49aff;
+    font-size: 40px;
+    text-shadow: 0 0 25px #9b36ff;
+}
+
+.intro-screen p {
+    color: #54dfff;
+}
+
+.countdown {
+    font-size: 100px;
+    font-weight: 900;
+    color: #ff35d3;
+    text-shadow: 0 0 40px #ff35d3;
+}
+
+.count-pop {
+    animation: countPop .8s ease;
+}
+
+@keyframes countPop {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.5) rotate(15deg); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+#startBtn {
+    padding: 15px 35px;
+    border: 2px solid #a34dff;
+    border-radius: 15px;
+    background: #301052;
+    color: white;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0 0 25px #923cff;
+    animation: pulse 1s infinite;
+}
+
+#startBtn:disabled {
+    opacity: .5;
+}
+
+.intro-out {
+    animation: introExit .8s forwards;
+    pointer-events: none;
+}
+
+@keyframes introExit {
+    to {
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(1.5);
+    }
+}
+
+/* ===== MAIN ENTRANCE ===== */
+
+body:not(.started) .container {
+    opacity: 0;
+    visibility: hidden;
+    animation: none;
+}
+
+body.started .container {
+    visibility: visible;
+    animation: bossEntry 1.5s 1s both;
+}
+
+@keyframes bossEntry {
+    0% {
+        opacity: 0;
+        transform: scale(.2) rotate(15deg);
+        filter: blur(20px);
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(1.1) rotate(-3deg);
+        filter: blur(0);
+    }
+
+    100% {
+        transform: scale(1) rotate(0);
+    }
+}
+
+/* ===== PHOTO ENTRANCE ===== */
+
+body:not(.started) .photo-frame {
+    animation: none;
+}
+
+body.started .photo-frame {
+    animation:
+        photoEntry 1.3s 2.2s both,
+        neon 4s 3.5s linear infinite,
+        float 3s 3.5s ease-in-out infinite;
+}
+
+@keyframes photoEntry {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(180deg);
+        filter: blur(20px);
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(1.2) rotate(-10deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0);
+        filter: blur(0);
+    }
+}
+
+/* ===== TOXIC TEXT ===== */
+
+body:not(.started) .toxic-text span {
+    animation: none;
+    opacity: 0;
+}
+
+body.started .toxic-text span {
+    animation:
+        toxicEntry 1.4s 3.5s both,
+        toxicGlow 1.5s 4.9s infinite alternate;
+}
+
+/* ===== SCREEN SHAKE ===== */
+
+body.shake {
+    animation: screenShake .12s infinite;
+}
+
+@keyframes screenShake {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(5px, -4px); }
+    50% { transform: translate(-5px, 3px); }
+    75% { transform: translate(4px, 4px); }
+    100% { transform: translate(-3px, -4px); }
+}
+
+/* ===== FLASH ===== */
+
+.glitch-flash {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background: white;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.flash-active {
+    animation: flashBang .7s ease;
+}
+
+@keyframes flashBang {
+    0%, 100% { opacity: 0; }
+    10% { opacity: .9; }
+    30% { opacity: .1; }
+    50% { opacity: .8; }
+    70% { opacity: 0; }
+}
+
+/* ===== FUNNY MESSAGES ===== */
+
+.toast {
+    position: fixed;
+    z-index: 500;
+    top: 20px;
+    left: 50%;
+    transform: translate(-50%, -150px);
+    width: max-content;
+    max-width: 90%;
+    background: #210d35;
+    border: 1px solid #bd54ff;
+    box-shadow: 0 0 25px #a32dff;
+    border-radius: 15px;
+    padding: 14px 20px;
+    color: white;
+    font-weight: 900;
+    text-align: center;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.toast-show {
+    animation: toastIn 1.8s ease both;
+}
+
+@keyframes toastIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -150px) rotate(10deg);
+    }
+    20%, 75% {
+        opacity: 1;
+        transform: translate(-50%, 20px) rotate(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -100px);
+    }
+}
+
